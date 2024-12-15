@@ -18,7 +18,7 @@ class ImageCarousel {
             this.paginator.appendChild(element);
 
             element.addEventListener("click", () => {
-                this.current = element.dataset.value;
+                this.current = Number(element.dataset.value);
                 this.changeImage();
             });
         }
@@ -46,7 +46,7 @@ class ImageCarousel {
     updatePaginator() {
         if (this.paginators) {
             this.paginators.forEach(paginator => {
-                if (paginator.dataset.value == this.current) {
+                if (Number(paginator.dataset.value) === this.current) {
                     paginator.classList.add("active");
                 } else {
                     paginator.classList.remove("active");
