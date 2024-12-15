@@ -4,3 +4,7 @@
     width: 10px;
     margin-bottom: 2px;
 }
+
+.paginator div.active {
+    background-color: pink;
+}
