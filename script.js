@@ -1,10 +1,22 @@
 class ImageCarousel {
     constructor(name) {
-        const container = document.querySelector(`#${name}`);
-        const image = document.querySelector(`#${name} > img`);
-        const images = ["assets/bachalpsee.jpg", "assets/hang-son-doon.jpg", "assets/matterhorn.jpeg"];
-    
-        image.src = `${images[0]}`;
+        this.container = document.querySelector(`#${name}`);
+        this.image = document.querySelector(`#${name} > img`);
+        this.images = ["assets/bachalpsee.jpg", "assets/hang-son-doon.jpg", "assets/matterhorn.jpeg"];
+        this.current = 0;
+        this.image.src = `${this.images[this.current]}`;
+        this.changeImage();
+
+        window.addEventListener("click", () => {this.selectNext()});
+    }
+
+    selectNext() {
+        this.current = ((this.images.length - 1) === this.current)? 0 : this.current + 1;
+        this.changeImage();
+    }
+
+    changeImage() {
+        this.image.src = `${this.images[this.current]}`;
     }
 }
 
