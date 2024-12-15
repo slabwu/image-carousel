@@ -3,6 +3,8 @@ class ImageCarousel {
         const container = document.querySelector(`#${name}`);
         const image = document.querySelector(`#${name} > img`);
         const images = ["assets/bachalpsee.jpg", "assets/hang-son-doon.jpg", "assets/matterhorn.jpeg"];
+    
+        image.src = `${images[0]}`;
     }
 }
 
