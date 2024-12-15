@@ -4,11 +4,22 @@ class ImageCarousel {
         this.image = document.querySelector(`#${name} > img`);
         this.backBtn = document.querySelector(`#${name} > .lastImage`);
         this.forwardBtn = document.querySelector(`#${name} > .nextImage`);
+        this.paginator = document.querySelector(`#${name} > .paginator`);
 
         this.images = ["assets/bachalpsee.jpg", "assets/hang-son-doon.jpg", "assets/matterhorn.jpeg"];
         this.current = 0;
         this.image.src = `${this.images[this.current]}`;
         this.changeImage();
+
+        for (let i = 0; i < this.images.length; i++) {
+            let element = document.createElement("div");
+            element.dataset.value = i;
+            this.paginator.appendChild(element);
+            element.addEventListener("click", () => {
+                this.current = element.dataset.value;
+                this.changeImage();
+            });
+        }
 
         this.backBtn.addEventListener("click", () => {this.selectPrevious()});
         this.forwardBtn.addEventListener("click", () => {this.selectNext()});
