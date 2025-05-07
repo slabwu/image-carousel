@@ -40,8 +40,9 @@ class ImageCarousel {
 
     changeImage() {
         this.image.src = `${this.images[this.current]}`;
+        clearTimeout(this.timer);
         this.updatePaginator();
-        //setTimeout(() => {this.selectNext()}, 5000);
+        this.timer = setTimeout(() => {this.selectNext()}, 5000);
     }
 
     updatePaginator() {

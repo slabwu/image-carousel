@@ -59,11 +59,13 @@
     transition: all 0.2s;
 }
 
-.paginator div:hover {
+.paginator div:hover, .paginator div.active:hover {
     transform: scale(1.3);
 }
 
 .paginator div.active {
-    background-color: rgb(152, 152, 152);
+    background-color: blue;
+    opacity: 70%;
+    transform: scale(1.1);
     transition: all 0.2s;
 }
